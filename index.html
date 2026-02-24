@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
-    <meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE">
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
 
     <title>Mobile Tic Tac Toe</title>
 
@@ -27,8 +27,58 @@
     <meta name="twitter:image" content="https://YOUR_NETLIFY_URL/yourimage.png">
 
     <style>
-        /* your CSS remains the same — I did not change anything */
+        /* THE LOOK (CSS) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        h1 { color: #333; margin-bottom: 10px; }
+        #status { margin-bottom: 20px; font-size: 1.2rem; font-weight: bold; color: #555; }
+        
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 10px;
+        }
+        
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            touch-action: manipulation; 
+        }
+
+        .cell:active { background-color: #e0e0e0; }
+
+        button {
+            margin-top: 30px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #0056b3; }
+    </style>
 </head>
+
 <body>
 
     <h1>Tic Tac Toe</h1>
@@ -49,16 +99,15 @@
     <button onclick="resetGame()">Restart Game</button>
 
     <script>
-        /* THE BRAIN (JavaScript) */
         let currentPlayer = "X";
         let boardState = ["", "", "", "", "", "", "", "", ""];
         let gameActive = true;
         const statusDisplay = document.getElementById('status');
 
         const winningConditions = [
-            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-            [0, 4, 8], [2, 4, 6]             // Diagonals
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], 
+            [0, 4, 8], [2, 4, 6]             
         ];
 
         document.querySelectorAll('.cell').forEach(cell => {
@@ -112,6 +161,6 @@
             document.querySelectorAll('.cell').forEach(cell => cell.innerText = "");
         }
     </script>
+
 </body>
 </html>
-@Sourabh Tiwari @Hardik Singh @Aryan vangule @Ayush tiwari 
