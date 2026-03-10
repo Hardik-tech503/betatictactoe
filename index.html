@@ -1,168 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="Eh4MvjqjsobH9JHabDZj2ITW9V-TPgLvRR3P7SbGIMs" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
-    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mobile Tic Tac Toe</title>
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+<meta name="google-site-verification" content="Eh4MvjqjsobH9JHabDZj2ITW9V-TPgLvRR3P7SbGIMs">
 
-    <!-- BASIC SEO -->
-    <meta name="description" content="Play a clean, fast, mobile-friendly Tic Tac Toe game online. No ads, no downloads — single-player mode for quick fun.">
-    <meta name="keywords" content="tic tac toe, online tic tac toe, mobile tic tac toe, xo game, play tic tac toe, free game">
+<title>Play Tic Tac Toe Online | Fast Mobile XO Game</title>
 
-    <!-- SOCIAL SHARING (OPEN GRAPH) -->
-    <meta property="og:title" content="Mobile Tic Tac Toe">
-    <meta property="og:description" content="Play a clean, fast, mobile-friendly Tic Tac Toe game online.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://YOUR_NETLIFY_URL">
-    <meta property="og:image" content="https://YOUR_NETLIFY_URL/yourimage.png">
+<meta name="description" content="Play Tic Tac Toe online instantly. Clean, fast, mobile-friendly XO game. No downloads required.">
+<meta name="keywords" content="tic tac toe, online tic tac toe, xo game, play tic tac toe online, mobile tic tac toe">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Hardik Tech">
 
-    <!-- TWITTER CARD -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mobile Tic Tac Toe">
-    <meta name="twitter:description" content="Play a simple, fast, mobile-friendly Tic Tac Toe game online.">
-    <meta name="twitter:image" content="https://YOUR_NETLIFY_URL/yourimage.png">
+<!-- CANONICAL URL -->
+<link rel="canonical" href="https://betatictactoe-67.vercel.app/">
 
-    <style>
-        /* THE LOOK (CSS) */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
-        }
-        h1 { color: #333; margin-bottom: 10px; }
-        #status { margin-bottom: 20px; font-size: 1.2rem; font-weight: bold; color: #555; }
-        
-        .board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            gap: 10px;
-        }
-        
-        .cell {
-            width: 100px;
-            height: 100px;
-            background-color: #fff;
-            border: 2px solid #333;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            touch-action: manipulation; 
-        }
+<!-- OPEN GRAPH (for social sharing) -->
+<meta property="og:title" content="Play Tic Tac Toe Online">
+<meta property="og:description" content="A clean, fast mobile Tic Tac Toe game. Play instantly in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://betatictactoe-67.vercel.app/">
 
-        .cell:active { background-color: #e0e0e0; }
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Play Tic Tac Toe Online">
+<meta name="twitter:description" content="Fast and mobile-friendly Tic Tac Toe game.">
 
-        button {
-            margin-top: 30px;
-            padding: 10px 25px;
-            font-size: 1rem;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover { background-color: #0056b3; }
-    </style>
+<style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+margin: 0;
+background-color: #f0f2f5;
+}
+
+h1 {
+color: #333;
+margin-bottom: 10px;
+}
+
+#status {
+margin-bottom: 20px;
+font-size: 1.2rem;
+font-weight: bold;
+color: #555;
+}
+
+.board {
+display: grid;
+grid-template-columns: repeat(3, 100px);
+grid-template-rows: repeat(3, 100px);
+gap: 10px;
+}
+
+.cell {
+width: 100px;
+height: 100px;
+background-color: #fff;
+border: 2px solid #333;
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 2.5rem;
+font-weight: bold;
+cursor: pointer;
+touch-action: manipulation;
+}
+
+.cell:active {
+background-color: #e0e0e0;
+}
+
+button {
+margin-top: 30px;
+padding: 10px 25px;
+font-size: 1rem;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0056b3;
+}
+</style>
+
 </head>
 
 <body>
 
-    <h1>Tic Tac Toe</h1>
-    <div id="status">Player X's Turn</div>
+<h1>Tic Tac Toe</h1>
+<div id="status">Player X's Turn</div>
 
-    <div class="board" id="board">
-        <div class="cell" data-index="0"></div>
-        <div class="cell" data-index="1"></div>
-        <div class="cell" data-index="2"></div>
-        <div class="cell" data-index="3"></div>
-        <div class="cell" data-index="4"></div>
-        <div class="cell" data-index="5"></div>
-        <div class="cell" data-index="6"></div>
-        <div class="cell" data-index="7"></div>
-        <div class="cell" data-index="8"></div>
-    </div>
+<div class="board" id="board">
+<div class="cell" data-index="0"></div>
+<div class="cell" data-index="1"></div>
+<div class="cell" data-index="2"></div>
+<div class="cell" data-index="3"></div>
+<div class="cell" data-index="4"></div>
+<div class="cell" data-index="5"></div>
+<div class="cell" data-index="6"></div>
+<div class="cell" data-index="7"></div>
+<div class="cell" data-index="8"></div>
+</div>
 
-    <button onclick="resetGame()">Restart Game</button>
+<button onclick="resetGame()">Restart Game</button>
 
-    <script>
-        let currentPlayer = "X";
-        let boardState = ["", "", "", "", "", "", "", "", ""];
-        let gameActive = true;
-        const statusDisplay = document.getElementById('status');
+<script>
 
-        const winningConditions = [
-            [0, 1, 2], [3, 4, 5], [6, 7, 8], 
-            [0, 3, 6], [1, 4, 7], [2, 5, 8], 
-            [0, 4, 8], [2, 4, 6]             
-        ];
+let currentPlayer = "X";
+let boardState = ["","","","","","","","",""];
+let gameActive = true;
 
-        document.querySelectorAll('.cell').forEach(cell => {
-            cell.addEventListener('click', () => {
-                const index = cell.getAttribute('data-index');
+const statusDisplay = document.getElementById('status');
 
-                if (boardState[index] !== "" || !gameActive) return;
+const winningConditions = [
+[0,1,2],[3,4,5],[6,7,8],
+[0,3,6],[1,4,7],[2,5,8],
+[0,4,8],[2,4,6]
+];
 
-                boardState[index] = currentPlayer;
-                cell.innerText = currentPlayer;
-                cell.style.color = currentPlayer === "X" ? "#ff4d4d" : "#4d79ff";
+document.querySelectorAll('.cell').forEach(cell => {
 
-                checkResult();
-            });
-        });
+cell.addEventListener('click', () => {
 
-        function checkResult() {
-            let roundWon = false;
-            for (let condition of winningConditions) {
-                let a = boardState[condition[0]];
-                let b = boardState[condition[1]];
-                let c = boardState[condition[2]];
-                if (a === '' || b === '' || c === '') continue;
-                if (a === b && b === c) {
-                    roundWon = true;
-                    break;
-                }
-            }
+const index = cell.getAttribute('data-index');
 
-            if (roundWon) {
-                statusDisplay.innerText = `Player ${currentPlayer} Wins!`;
-                gameActive = false;
-                return;
-            }
+if (boardState[index] !== "" || !gameActive) return;
 
-            if (!boardState.includes("")) {
-                statusDisplay.innerText = "Draw!";
-                gameActive = false;
-                return;
-            }
+boardState[index] = currentPlayer;
 
-            currentPlayer = currentPlayer === "X" ? "O" : "X";
-            statusDisplay.innerText = `Player ${currentPlayer}'s Turn`;
-        }
+cell.innerText = currentPlayer;
 
-        function resetGame() {
-            currentPlayer = "X";
-            boardState = ["", "", "", "", "", "", "", "", ""];
-            gameActive = true;
-            statusDisplay.innerText = "Player X's Turn";
-            document.querySelectorAll('.cell').forEach(cell => cell.innerText = "");
-        }
-    </script>
+cell.style.color = currentPlayer === "X" ? "#ff4d4d" : "#4d79ff";
+
+checkResult();
+
+});
+
+});
+
+function checkResult(){
+
+let roundWon = false;
+
+for (let condition of winningConditions){
+
+let a = boardState[condition[0]];
+let b = boardState[condition[1]];
+let c = boardState[condition[2]];
+
+if(a===''||b===''||c==='') continue;
+
+if(a===b && b===c){
+roundWon=true;
+break;
+}
+
+}
+
+if(roundWon){
+
+statusDisplay.innerText=`Player ${currentPlayer} Wins!`;
+
+gameActive=false;
+
+return;
+
+}
+
+if(!boardState.includes("")){
+
+statusDisplay.innerText="Draw!";
+
+gameActive=false;
+
+return;
+
+}
+
+currentPlayer=currentPlayer==="X"?"O":"X";
+
+statusDisplay.innerText=`Player ${currentPlayer}'s Turn`;
+
+}
+
+function resetGame(){
+
+currentPlayer="X";
+
+boardState=["","","","","","","","",""];
+
+gameActive=true;
+
+statusDisplay.innerText="Player X's Turn";
+
+document.querySelectorAll('.cell').forEach(cell=>cell.innerText="");
+
+}
+
+</script>
 
 </body>
 </html>
-
